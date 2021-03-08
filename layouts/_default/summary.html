@@ -1,0 +1,21 @@
+<article class="prose lg:prose-lg dark:prose-dark mx-4 md:mx-auto mb-8">
+	<a href="{{ .Permalink }}"><h3>{{ .Title }}</h3></a>
+
+	<div class="text-gray-400 dark:text-gray-500">
+		Published: <time>{{ .Date.Format "02. Jan 2006." }}</time>
+	</div>
+
+	{{ range .Params.tags }}
+		<a href="{{ "tags" | relLangURL}}{{ . | urlize }}">{{ . }}</a>
+	{{ end }}
+
+	{{ partial "thumbnail.html" . }}
+
+	<div>
+		{{ .Summary }}
+
+		{{ if .Truncated }}
+			<a href="{{ .Permalink }}" class="whitespace-nowrap">Read more...</a>
+		{{ end }}
+	</div>
+</article>

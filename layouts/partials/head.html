@@ -1,0 +1,32 @@
+{{ $title := .Title }}
+{{ $description := .Description }}
+{{ if .IsHome }}
+	{{ $title = $.Site.Title }}
+	{{ $description = $.Site.Params.description }}
+{{ end }}
+
+<!-- Meta tags -->
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ $title }}</title>
+<!-- Title tags -->
+{{ partial "meta-title" $title }}
+<meta property="og:site_name" content="{{ $.Site.Title }}"/>
+<!-- Description tags -->
+{{ partial "meta-description" $description }}
+
+<!-- Tailwind CSS -->
+{{ $styles := resources.Get "css/styles.css" | resources.PostCSS }}
+{{ if .Site.IsServer }}
+	<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{ else }}
+	{{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+	<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ end }}
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+
+<script src="/js/stargazers.js" defer></script>

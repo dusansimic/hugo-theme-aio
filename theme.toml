@@ -1,0 +1,12 @@
+name = "aio"
+license = "MIT"
+licenselink = "https://github.com/dusansimic/hugo-theme-aio/blob/master/LICENSE"
+description = "An all in one theme for my website"
+homepage = "http://example.com/"
+tags = ["all in one", "aio", "opinionated"]
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "Dušan Simić"
+  homepage = "https://dusansimic.me"

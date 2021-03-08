@@ -1,0 +1,15 @@
+{{ with .Resources.GetMatch "thumbnail" }}
+	<div class="pb-8">
+		<img src="{{ .RelPermalink }}" class="rounded-lg shadow-lg"/>
+		{{ if isset .Params "author" }}
+			<figcaption class="text-center">
+				Photo by 
+				{{ if isset .Params "author_url" }}
+					<a href="{{ .Params.Author_URL }}">{{ .Params.Author }}</a>
+				{{ else }}
+					{{ .Params.Author }}
+				{{ end }}
+			</figcaption>
+		{{ end }}
+	</div>
+{{ end }}

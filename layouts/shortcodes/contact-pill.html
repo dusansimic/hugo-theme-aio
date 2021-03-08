@@ -1,0 +1,10 @@
+{{ $color := default "red" (.Get "color") }}
+
+<a
+	{{ with .Get "link" }}
+		href="{{ . }}"
+	{{ end }}
+	class="no-underline hover:text-current contact-pill mx-1"
+>
+	<span class="inline bg-{{ $color }}-800 hover:bg-{{ $color }}-700 text-{{ $color }}-100 text-base h-4 rounded">{{ with default "Nothing" (.Get "text") }}{{ . }}{{ end }}</span>
+</a>

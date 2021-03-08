@@ -1,0 +1,15 @@
+<footer class="max-w-screen-md mx-4 md:mx-auto py-12 text-lg text-center">
+	<p>
+		Designed by Dušan Simić.
+		{{ with .Site.Params.copyright }}
+			Content licensed under
+			{{ partial "copyright-link" . }}.
+		{{ end }}
+	</p>
+</footer>
+
+<!--
+	Copyright link partial
+	It's condensed like this to avoid whitespace
+-->
+{{ define "partials/copyright-link" }}{{ with .link }}<a href="{{ . }}" target="_blank" class="underline hover:text-link dark:hover:text-link-dark">{{ end }}{{ .text }}{{ with .link }}</a>{{ end }}{{ end }}

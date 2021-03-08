@@ -1,0 +1,24 @@
+{
+  "name": "hugo-theme-aio",
+  "version": "0.0.0",
+  "description": "An all in one theme for my website",
+  "license": "MIT",
+  "repository": "dusansimic/hugo-theme-aio",
+  "keywords": [
+    "all in one",
+    "aio"
+  ],
+  "author": {
+    "name": "Dušan Simić",
+    "email": "dusan.simic1810@gmail.com",
+    "url": "https://dusansimic.me"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.2",
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.4",
+    "postcss": "^8.2.6",
+    "postcss-import": "^14.0.0",
+    "tailwindcss": "^2.0.3"
+  }
+}
