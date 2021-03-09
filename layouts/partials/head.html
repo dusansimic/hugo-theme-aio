@@ -17,13 +17,7 @@
 {{ partial "meta-description" $description }}
 
 <!-- Tailwind CSS -->
-{{ $styles := resources.Get "css/styles.css" | resources.PostCSS }}
-{{ if .Site.IsServer }}
-	<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-{{ else }}
-	{{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-	<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
-{{ end }}
+<link rel="stylesheet" href="/css/styles.css">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">

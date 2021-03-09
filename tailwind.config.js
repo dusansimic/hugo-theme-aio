@@ -1,4 +1,17 @@
 module.exports = {
+	purge: {
+		enabled: true,
+		content: ['./layouts/**/*.html'],
+		options: {
+			safelist: [
+				...(['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'].reduce(
+					(accum, color) => [...accum, `bg-${color}-800`, `hover:bg-${color}-700`, `text-${color}-100`],
+					[]
+				))
+			],
+			keyFrames: true
+		}
+	},
 	theme: {
 		fontFamily: {
 			sans: ['Ubuntu', 'sans']
