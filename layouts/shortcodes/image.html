@@ -1,0 +1,13 @@
+<img class="mx-auto rounded-full"
+	{{ with .Get "src" }}
+		src="{{ . }}"
+	{{ end }}
+
+	{{ with .Get "alt" }}
+		alt="{{ . }}"
+	{{ end }}
+
+	{{ with .Get "width" }}
+		width="{{ . }}"
+	{{ end }}
+>
