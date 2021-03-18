@@ -2,6 +2,7 @@ const {task, src, dest, series, watch} = require('gulp');
 const postcss = require('gulp-postcss');
 const stripCssComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
+const minify = require('gulp-minify');
 const cleanCssConfig = require('./clean-css.config');
 
 task('css', () => {
@@ -15,6 +16,12 @@ task('css', () => {
 		.pipe(dest('static/css/'));
 });
 
-task('stare', () => watch('layouts/**/*.html', series('css')))
+task('js', () => {
+	return src('assets/js/*.js')
+		.pipe(minify())
+		.pipe(dest('static/js/'));
+});
 
-task('default', series('css'));
+task('stare', () => watch(['layouts/**/*.html', 'assets/**/*'], series('css', 'js')))
+
+task('default', series('css', 'js'));

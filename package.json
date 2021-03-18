@@ -18,6 +18,7 @@
     "autoprefixer": "^10.2.4",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
+    "gulp-minify": "^3.1.0",
     "gulp-postcss": "^9.0.0",
     "gulp-strip-css-comments": "^2.0.0",
     "tailwindcss": "^2.0.3"
