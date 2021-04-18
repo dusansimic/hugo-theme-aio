@@ -19,6 +19,7 @@ module.exports = {
 		extend: {
 			colors: {
 				blurk: {
+					300: '#202938',
 					400: '#161c26',
 					DEFAULT: '#0d1117',
 					600: '#080e17'

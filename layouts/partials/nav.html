@@ -1,5 +1,7 @@
-<nav class="pt-4 text-lg flex flex-col md:flex-row md:space-x-4">
+<nav class="hidden md:flex md:flex-row md:space-x-4 pt-4 text-lg">
 	{{ range .Site.Params.nav }}
 		<a href="{{ .link }}" class="underline hover:text-link dark:hover:text-link-dark">{{ .text }}</a>
 	{{ end }}
 </nav>
+
+{{ partial "nav-mobile" . }}
