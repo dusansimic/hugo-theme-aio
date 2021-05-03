@@ -27,3 +27,6 @@
 
 <script src="/js/stargazers-min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+{{ with .Site.Params.yaas }}
+<script src="/js/yaas.js" code="{{ .code }}" path="{{ .path }}" defer></script>
+{{ end }}
