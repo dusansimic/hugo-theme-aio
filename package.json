@@ -13,6 +13,10 @@
     "email": "dusan.simic1810@gmail.com",
     "url": "https://dusansimic.me"
   },
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp stare"
+  },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.4",

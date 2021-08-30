@@ -1,11 +1,23 @@
-<header class="py-4 md:py-12">
-	<div class="max-w-screen-md mx-4 md:mx-auto">
-		<div class="flex flex-row items-center justify-between">
-			<h1 class="text-2xl font-bold underline hover:text-link dark:hover:text-link-dark"><a href="/">{{ .Site.Title }}</a></h1>
-
-			{{ partial "nav.html" . }}
+<header class="min-h-96 flex flex-col justify-center bg-blue-900 bg-opacity-30 mb-16">
+	<section class="prose lg:prose-lg dark:prose-dark w-prose mx-auto">
+		{{ if eq .Kind "home" }}
+			<h1>{{ .Site.Title }}</h1>
+			<p class="text-3xl mt-8">{{ .Site.Params.Description }}</p>
+		{{ else if eq .Kind "section" }}
+			<h1>{{ .Title }}</h1>
+			{{ with .Content }}
+				<p class="text-3xl mt-8">{{ . }}</p>
+			{{ end }}
+			<a href="/" class="link-button">Back to home</a>
+		{{ else if eq .Type "about" }}
+			<h1>{{ .Title }}</h1>
+			<p class="text-3xl mt-8">{{ .Description }}</p>
+		{{ else if eq .Type "uses" }}
+			<h1>{{ .Title }}</h1>
+			<p class="text-3xl mt-8">{{ .Description }}</p>
+		{{ else }}
+			{{ partial "post-header.html" . }}
+		{{ end }}
 		</div>
-	</div>
-
-	{{ partial "section-banner" . }}
+	</section>
 </header>

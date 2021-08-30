@@ -1,13 +1,18 @@
 {{ with .Resources.GetMatch "thumbnail" }}
-	<div class="pb-8">
-		<img src="{{ .RelPermalink }}" class="rounded-lg shadow-lg"/>
-		{{ if isset .Params "author" }}
-			<figcaption class="text-center">
-				Photo by 
-				{{ if isset .Params "author_url" }}
-					<a href="{{ .Params.Author_URL }}">{{ .Params.Author }}</a>
-				{{ else }}
-					{{ .Params.Author }}
+	<div class="pb-8 -inset-x-10">
+		<img src="{{ .RelPermalink }}" class="rounded-xl shadow-lg"/>
+		{{ if or (isset .Params "author") (isset .Params "source") }}
+			<figcaption class="text-center text-gray-500">
+				Photo
+				{{ if and (isset .Params "author") (isset .Params "author_url") }}
+					by <a href="{{ .Params.Author_URL }}">{{ .Params.Author }}</a>
+				{{ else if isset .Params "author" }}
+					by {{ .Params.Author }}
+				{{ end }}
+				{{ if and (isset .Params "source") (isset .Params "source_url") }}
+					from <a href="{{ .Params.Source_URL }}">{{ .Params.Source }}</a>
+				{{ else if isset .Params "source" }}
+					from {{ .Params.Source }}
 				{{ end }}
 			</figcaption>
 		{{ end }}

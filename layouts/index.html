@@ -1,10 +1,14 @@
 {{ define "main" }}
-	<main class="prose lg:prose-lg dark:prose-dark mx-4 md:mx-auto text-center">
+	<section class="prose lg:prose-lg dark:prose-dark mx-auto mt-12">
 		{{ .Content }}
-	</main>
-	<div class="max-w-prose mx-4 md:mx-auto mt-8 flex flex-wrap justify-center">
-		{{ range .Site.Params.contact }}
-			{{ partial "contact-pill.html" . }}
+	</section>
+
+	<section class="prose lg:prose-lg dark:prose-dark mx-auto mt-24">
+		<h1>Latest posts</h1>
+
+		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts" | first 3) }}
+		{{ range $paginator.Pages }}
+			{{ .Render "summary" }}
 		{{ end }}
-	</div>
+	</section>
 {{ end }}
