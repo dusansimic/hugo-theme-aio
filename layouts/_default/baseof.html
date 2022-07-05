@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="simply">
 	{{- partial "head.html" . -}}
-	<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+	<body class="space-y-8">
 		{{- partial "header.html" . -}}
-		<div id="content">
 		{{- block "main" . }}{{- end }}
-		</div>
 		{{- partial "footer.html" . -}}
+		<script>
+			feather.replace({width: 16, height: 16})
+		</script>
 	</body>
 </html>

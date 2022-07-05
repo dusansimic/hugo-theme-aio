@@ -1,11 +1,5 @@
 {{ define "main" }}
-	<section class="prose lg:prose-lg dark:prose-dark mx-auto mt-12">
-		{{ .Content }}
-	</section>
-
-	<section class="prose lg:prose-lg dark:prose-dark mx-auto mt-24">
-		<h1>Latest posts</h1>
-
+	<section class="prose prose-lg mx-auto">
 		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts" | first 3) }}
 		{{ range $paginator.Pages }}
 			{{ .Render "summary" }}

@@ -1,19 +1,21 @@
-<h1>{{ .Title }}</h1>
+<div class="grid grid-cols-1 justify-items-center">
 
-<section class="mb-6">
-{{ with .Date }}
-	<div class="inline-flex items-center mr-2">
-		{{ partial "icons/calendar" . }}
-		<time class="ml-1">{{ .Format "02. Jan 2006." }}</time>
-	</div>
-{{ end }}
+	<h1 class="mb-0 p-2">{{ .Title }}</h1>
 
-{{ with .ReadingTime }}
-	<div class="inline-flex items-center">
-		{{ partial "icons/clock" . }}
-		<time class="ml-1">{{ . }} minute read</time>
-	</div>
-{{ end }}
-</section>
+	<section class="flex space-x-4">
+	{{ with .Date }}
+		<div class="flex items-center space-x-2">
+			<i data-feather="calendar"></i>
+			<time>{{ .Format "02. Jan 2006." }}</time>
+		</div>
+	{{ end }}
 
-<a href="/blog" class="link-button">Back to posts</a>
+	{{ with .ReadingTime }}
+		<div class="flex items-center space-x-2">
+			<i data-feather="clock"></i>
+			<time>{{ . }} minute read</time>
+		</div>
+	{{ end }}
+	</section>
+
+</div>

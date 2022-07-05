@@ -1,4 +1,4 @@
-const {task, src, dest, series, watch} = require('gulp');
+const { task, src, dest, series, watch } = require('gulp');
 const postcss = require('gulp-postcss');
 const stripCssComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
@@ -11,7 +11,7 @@ task('css', () => {
 			require('tailwindcss')('./tailwind.config.js'),
 			require('autoprefixer')
 		]))
-		.pipe(stripCssComments({preserve: false}))
+		.pipe(stripCssComments({ preserve: false }))
 		.pipe(cleanCSS(cleanCssConfig))
 		.pipe(dest('static/css/'));
 });

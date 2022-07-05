@@ -1,23 +1,20 @@
-<header class="min-h-96 flex flex-col justify-center bg-blue-900 bg-opacity-30 mb-16">
-	<section class="prose lg:prose-lg dark:prose-dark w-prose mx-auto">
+<header class="bg-base-200">
+	<div class="prose prose-lg mx-auto pt-12 pb-8">
 		{{ if eq .Kind "home" }}
-			<h1>{{ .Site.Title }}</h1>
-			<p class="text-3xl mt-8">{{ .Site.Params.Description }}</p>
-		{{ else if eq .Kind "section" }}
-			<h1>{{ .Title }}</h1>
+			<h1 class="text-5xl text-center font-bold mb-0 p-2">{{ .Site.Title }}</h1>
+		{{ else if and (eq .Kind "section") (eq .Section "posts") }}
+			<h1 class="text-5xl font-bold">{{ .Title }}</h1>
 			{{ with .Content }}
-				<p class="text-3xl mt-8">{{ . }}</p>
+				<p class="text-2xl">{{ . }}</p>
 			{{ end }}
 			<a href="/" class="link-button">Back to home</a>
-		{{ else if eq .Type "about" }}
-			<h1>{{ .Title }}</h1>
-			<p class="text-3xl mt-8">{{ .Description }}</p>
+		{{ else if eq .Type "info" }}
+			<h1 class="text-center mb-0 p-2">{{ .Title }}</h1>
 		{{ else if eq .Type "uses" }}
 			<h1>{{ .Title }}</h1>
-			<p class="text-3xl mt-8">{{ .Description }}</p>
 		{{ else }}
 			{{ partial "post-header.html" . }}
 		{{ end }}
-		</div>
-	</section>
+		{{ partial "nav.html" . }}
+	</div>
 </header>

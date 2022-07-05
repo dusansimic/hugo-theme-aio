@@ -1,18 +1,28 @@
-<article class="prose lg:prose-lg dark:prose-dark mx-4 md:mx-auto mb-24">
-	<h2>{{ .Title }}</h2>
+<article>
+	<a href="{{ .Permalink }}">
+		<h2 class="card-title text-2xl m-0">
+			{{ .Title }}
+		</h2>
+	</a>
 
-	<div class="text-gray-400 dark:text-gray-500">
-		<div class="inline-flex items-center mr-2">
-			{{ partial "icons/calendar" . }}
-			<time class="ml-1">{{ .Date.Format "02. Jan 2006." }}</time>
+	<div class="flex space-x-4">
+		<div class="flex items-center space-x-2">
+			<i data-feather="calendar"></i>
+			{{ with .Date }}
+				<time>{{ .Format "02. Jan 2006." }}</time>
+			{{ end }}
+		</div>
+
+		<div class="flex items-center space-x-2">
+			<i data-feather="clock"></i>
+			{{ with .ReadingTime }}
+				<time>{{ . }} minute read</time>
+			{{ end }}
 		</div>
 	</div>
 
-	{{ partial "thumbnail.html" . }}
-
-	<div class="mb-4">
+	<p class="text-justify">
 		{{ .Summary }}
-	</div>
-
-	<a href="{{ .Permalink }}" class="link-button mt-8">Read more</a>
+	</p>
 </article>
+
